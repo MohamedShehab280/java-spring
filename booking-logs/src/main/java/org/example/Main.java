@@ -13,6 +13,9 @@ public class Main {
         log.debug("found {} seats", seats);
         log.info("booking started");
 
+        Booking booking = new Booking("ahmed@example.com", "Spring Boot Workshop", wanted);
+        log.info("the booking: {}", booking);
+
         if (wanted > seats) {
             log.warn("only {} seats left, asked for {}", seats, wanted);
         }
