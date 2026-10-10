@@ -1,27 +1,13 @@
 package com.eventia.config;
 
-import com.eventia.model.Event;
-import java.time.Clock;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 
+/**
+ * Section 2: @ComponentScan بيلف على الـ package ده ويلاقي اللي عليه
+ * @Component لوحده. إحنا مش بنمرّر أي قايمة بإيدنا.
+ */
 @Configuration
+@ComponentScan(basePackages = "com.eventia")
 public class AppConfig {
-
-    @Bean
-    @Primary
-    public Event workshop() {
-        return new Event(1L, "Spring Boot Workshop", 40);
-    }
-
-    @Bean
-    public Event conference() {
-        return new Event(2L, "Java Conference", 200);
-    }
-
-    @Bean
-    public Clock clock() {
-        return Clock.systemUTC();
-    }
 }

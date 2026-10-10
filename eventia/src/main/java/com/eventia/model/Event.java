@@ -2,6 +2,7 @@ package com.eventia.model;
 
 import lombok.Data;
 
+/** الـ model بتاع الفعالية. بيبقى @Entity حقيقية في سكشن 7. */
 @Data
 public class Event {
 
