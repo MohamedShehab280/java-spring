@@ -11,15 +11,11 @@ public class App {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        log.info("beans in the context: {}", context.getBeanDefinitionCount());
-        for (String name : context.getBeanDefinitionNames()) {
-            log.info("   {}", name);
-        }
+        Event a = context.getBean("workshop", Event.class);
+        Event b = context.getBean("conference", Event.class);
 
-        try {
-            context.getBean(Event.class);
-        } catch (Exception e) {
-            log.info("getBean(Event.class) -> {}", e.getMessage());
-        }
+        log.info("by name workshop   -> {}", a.getTitle());
+        log.info("by name conference -> {}", b.getTitle());
+        log.info("same twice? {}", context.getBean("workshop", Event.class) == a);
     }
 }
