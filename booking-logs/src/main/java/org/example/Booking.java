@@ -1,10 +1,8 @@
 package org.example;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Booking {
 
     private String user;
