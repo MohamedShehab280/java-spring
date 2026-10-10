@@ -16,7 +16,10 @@ public class App {
             log.info("   {}", name);
         }
 
-        Event event = context.getBean(Event.class);
-        log.info("got it: {} with {} seats", event.getTitle(), event.getCapacity());
+        try {
+            context.getBean(Event.class);
+        } catch (Exception e) {
+            log.info("getBean(Event.class) -> {}", e.getMessage());
+        }
     }
 }
