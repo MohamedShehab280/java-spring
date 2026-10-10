@@ -1,6 +1,7 @@
 package com.eventia.config;
 
 import com.eventia.model.Event;
+import java.time.Clock;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -17,5 +18,10 @@ public class AppConfig {
     @Bean
     public Event conference() {
         return new Event(2L, "Java Conference", 200);
+    }
+
+    @Bean
+    public Clock clock() {
+        return Clock.systemUTC();
     }
 }
