@@ -1,16 +1,10 @@
 package com.eventia;
 
-import lombok.extern.slf4j.Slf4j;
 import com.eventia.config.AppConfig;
 import com.eventia.service.BookingService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-/**
- * Section 2: أول لمسة مع Spring.
- *
- * محدش بيكتب new BookingService() هنا. الـ context هو اللي بيعملها،
- * وإحنا بنطلبها منه. الـ wiring والـ abstractions في سكشن 3.
- */
 @Slf4j
 public class App {
 
@@ -21,8 +15,9 @@ public class App {
         bookingService.book("ahmed@example.com", "Spring Boot Workshop");
 
         log.info("beans in the context: {}", context.getBeanDefinitionCount());
-
-        // singleton: نفس الـ instance مرتين
+        for (String name : context.getBeanDefinitionNames()) {
+            log.info("   {}", name);
+        }
         log.info("same instance? {}",
                 context.getBean(BookingService.class) == bookingService);
     }
