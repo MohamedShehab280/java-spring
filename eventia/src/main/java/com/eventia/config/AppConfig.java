@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    @Bean
+    @Bean("mainEvent")
     public Event workshop() {
         return new Event(1L, "Spring Boot Workshop", 40);
     }

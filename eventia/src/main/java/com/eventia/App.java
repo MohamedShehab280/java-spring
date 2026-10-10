@@ -11,11 +11,14 @@ public class App {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        Event a = context.getBean("workshop", Event.class);
-        Event b = context.getBean("conference", Event.class);
+        for (String name : context.getBeanDefinitionNames()) {
+            log.info("   {}", name);
+        }
 
-        log.info("by name workshop   -> {}", a.getTitle());
-        log.info("by name conference -> {}", b.getTitle());
-        log.info("same twice? {}", context.getBean("workshop", Event.class) == a);
+        try {
+            context.getBean("workshop", Event.class);
+        } catch (Exception e) {
+            log.info("getBean(\"workshop\") -> {}", e.getMessage());
+        }
     }
 }
