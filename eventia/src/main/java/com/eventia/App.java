@@ -11,14 +11,7 @@ public class App {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        for (String name : context.getBeanDefinitionNames()) {
-            log.info("   {}", name);
-        }
-
-        try {
-            context.getBean("workshop", Event.class);
-        } catch (Exception e) {
-            log.info("getBean(\"workshop\") -> {}", e.getMessage());
-        }
+        Event event = context.getBean(Event.class);
+        log.info("getBean(Event.class) now works -> {}", event.getTitle());
     }
 }
