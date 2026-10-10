@@ -11,5 +11,8 @@ public class App {
         var context = new AnnotationConfigApplicationContext(AppConfig.class);
 
         log.info("beans in the context: {}", context.getBeanDefinitionCount());
+        for (String name : context.getBeanDefinitionNames()) {
+            log.info("   {}", name);
+        }
     }
 }
