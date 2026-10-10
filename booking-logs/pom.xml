@@ -19,5 +19,13 @@
       <artifactId>logback-classic</artifactId>
       <version>1.5.15</version>
     </dependency>
+
+    <!-- from step 9: Lombok writes the code for you -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.36</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 </project>
