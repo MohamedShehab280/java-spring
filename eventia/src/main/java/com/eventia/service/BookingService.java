@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class BookingService {
 
+    public BookingService() {
+        log.info("constructor ran");
+    }
+
     public void book(String user, String eventTitle) {
         log.info("{} booked a seat for {}", user, eventTitle);
     }

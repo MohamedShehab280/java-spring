@@ -9,16 +9,15 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class App {
 
     public static void main(String[] args) {
+        log.info("building the context now");
+
         var context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        BookingService bookingService = context.getBean(BookingService.class);
-        bookingService.book("ahmed@example.com", "Spring Boot Workshop");
+        log.info("context ready, I asked for nothing yet");
 
-        log.info("beans in the context: {}", context.getBeanDefinitionCount());
-        for (String name : context.getBeanDefinitionNames()) {
-            log.info("   {}", name);
-        }
-        log.info("same instance? {}",
-                context.getBean(BookingService.class) == bookingService);
+        BookingService bookingService = context.getBean(BookingService.class);
+
+        log.info("now I asked");
+        bookingService.book("ahmed@example.com", "Spring Boot Workshop");
     }
 }
