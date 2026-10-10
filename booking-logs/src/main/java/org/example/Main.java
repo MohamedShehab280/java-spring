@@ -23,6 +23,7 @@ public class Main {
             sendMail();
         } catch (Exception e) {
             log.error("could not send confirmation");
+            log.error("could not send confirmation", e);
         }
     }
 
