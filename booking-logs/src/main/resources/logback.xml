@@ -3,7 +3,9 @@
         <encoder><pattern>%-5level %logger{22} - %msg%n</pattern></encoder>
     </appender>
 
-    <root level="DEBUG">
+    <logger name="org.example" level="DEBUG"/>
+
+    <root level="WARN">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
