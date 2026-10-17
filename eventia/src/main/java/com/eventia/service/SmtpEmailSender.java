@@ -5,8 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class SmtpEmailSender {
+public class SmtpEmailSender implements EmailSender {
 
+    @Override
     public void send(String to, String subject, String body) {
         log.info("[SMTP] -> {} | {}", to, subject);
     }

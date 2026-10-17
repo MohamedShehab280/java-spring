@@ -5,8 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class BackupEmailSender extends SmtpEmailSender {
+public class BackupEmailSender implements EmailSender {
 
+    @Override
     public void send(String to, String subject, String body) {
         log.info("[BACKUP] -> {} | {}", to, subject);
     }

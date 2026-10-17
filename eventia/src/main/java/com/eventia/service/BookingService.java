@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class BookingService {
 
-    private final SmtpEmailSender emailSender;
+    private final EmailSender emailSender;
 
-    public BookingService(@Qualifier("backupEmailSender") SmtpEmailSender sender) {
+    public BookingService(@Qualifier("backupEmailSender") EmailSender sender) {
         this.emailSender = sender;
     }
 
