@@ -1,18 +1,14 @@
 package com.eventia.service;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+// Not a bean. It needs nothing from the container, so the container
+// has no reason to know about it.
+public class Invoice {
 
-@Slf4j
-@Service
-public class InvoiceBuilder {
-
+    private final String customer;
     private int total = 0;
-    private String customer;
 
-    public void start(String customer) {
+    public Invoice(String customer) {
         this.customer = customer;
-        this.total = 0;
     }
 
     public void addSeat(int price) {
