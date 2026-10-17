@@ -15,9 +15,8 @@ public class App {
         bookingService.book("ahmed@example.com", "Spring Boot Workshop");
 
         log.info("beans in the context: {}", context.getBeanDefinitionCount());
-        log.info("context ready");
-        var first = context.getBean(com.eventia.service.InvoiceBuilder.class);
-        var second = context.getBean(com.eventia.service.InvoiceBuilder.class);
-        log.info("same object? {}", first == second);
+        log.info("context ready, I have asked for nothing yet");
+        context.getBean(com.eventia.service.TicketPrinter.class);
+        log.info("now I asked");
     }
 }
