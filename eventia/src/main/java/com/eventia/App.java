@@ -15,9 +15,11 @@ public class App {
         bookingService.book("ahmed@example.com", "Spring Boot Workshop");
 
         log.info("beans in the context: {}", context.getBeanDefinitionCount());
-
-        // singleton: نفس الـ instance مرتين
-        log.info("same instance? {}",
-                context.getBean(BookingService.class) == bookingService);
+        var desk = (com.eventia.service.Printer) context.getBean("deskPrinter");
+        var back = (com.eventia.service.Printer) context.getBean("backPrinter");
+        log.info("deskPrinter : {}", desk);
+        log.info("backPrinter : {}", back);
+        log.info("same object? {}", desk == back);
+        log.info("by hand     : {}", new com.eventia.service.Printer("desk"));
     }
 }
