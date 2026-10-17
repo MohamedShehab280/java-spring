@@ -14,7 +14,7 @@ public class AppConfig {
     }
 
     @Bean
-    public BookingService bookingService() {
-        return new BookingService(smtpEmailSender());
+    public BookingService bookingService(SmtpEmailSender smtpEmailSender) {
+        return new BookingService(smtpEmailSender);
     }
 }
