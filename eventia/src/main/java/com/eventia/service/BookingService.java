@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class BookingService {
 
-    private final SmtpEmailSender emailSender;
+    private SmtpEmailSender emailSender;
 
     @Autowired
-    public BookingService(SmtpEmailSender emailSender) {
+    public void setEmailSender(SmtpEmailSender emailSender) {
         this.emailSender = emailSender;
     }
 
