@@ -1,16 +1,14 @@
 package com.eventia.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class BookingService {
 
-    private SmtpEmailSender emailSender;
+    private final SmtpEmailSender emailSender;
 
-    @Autowired
-    public void setEmailSender(SmtpEmailSender emailSender) {
+    public BookingService(SmtpEmailSender emailSender) {
         this.emailSender = emailSender;
     }
 
