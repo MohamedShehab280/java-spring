@@ -9,12 +9,12 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    public SmtpEmailSender smtpEmailSender() {
-        return new SmtpEmailSender();
+    public BookingService bookingService(SmtpEmailSender smtpEmailSender) {
+        return new BookingService(smtpEmailSender);
     }
 
     @Bean
-    public BookingService bookingService(SmtpEmailSender smtpEmailSender) {
-        return new BookingService(smtpEmailSender);
+    public SmtpEmailSender smtpEmailSender() {
+        return new SmtpEmailSender();
     }
 }
