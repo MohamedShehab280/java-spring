@@ -20,7 +20,7 @@
       <artifactId>logback-classic</artifactId>
       <version>1.5.15</version>
     </dependency>
-
+    <!-- Section 3: الـ wiring والـ abstractions -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
@@ -34,4 +34,19 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <!-- Section 3: من غير السطر ده أسامي الـ parameters مش بتتحفظ في الـ
+               class file، وبالتالي Spring مش بتقدر تختار bean باسم الـ parameter.
+               Spring Boot بتحطّه لوحدها من سكشن 4، فده بيخلي السلوك واحد. -->
+          <parameters>true</parameters>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
