@@ -2,7 +2,6 @@ package com.eventia;
 
 import com.eventia.config.AppConfig;
 import com.eventia.service.BookingService;
-import com.eventia.service.SmtpEmailSender;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -16,7 +15,9 @@ public class App {
         bookingService.book("ahmed@example.com", "Spring Boot Workshop");
 
         log.info("beans in the context: {}", context.getBeanDefinitionCount());
-        log.info("service's sender: {}", bookingService.getEmailSender());
-        log.info("context's sender: {}", context.getBean(SmtpEmailSender.class));
+
+        // singleton: نفس الـ instance مرتين
+        log.info("same instance? {}",
+                context.getBean(BookingService.class) == bookingService);
     }
 }
