@@ -7,8 +7,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class BookingService {
 
-    @Autowired
     private SmtpEmailSender emailSender;
+
+    @Autowired
+    public BookingService(SmtpEmailSender emailSender) {
+        this.emailSender = emailSender;
+    }
 
     public void book(String user, String eventTitle) {
         log.info("{} booked a seat for {}", user, eventTitle);
