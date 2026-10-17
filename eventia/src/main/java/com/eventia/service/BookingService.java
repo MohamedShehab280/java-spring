@@ -8,8 +8,8 @@ public class BookingService {
 
     private final SmtpEmailSender emailSender;
 
-    public BookingService(SmtpEmailSender backupEmailSender) {
-        this.emailSender = backupEmailSender;
+    public BookingService(SmtpEmailSender smtpEmailSender) {
+        this.emailSender = smtpEmailSender;
     }
 
     public void book(String user, String eventTitle) {
