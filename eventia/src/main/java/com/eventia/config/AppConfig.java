@@ -15,6 +15,6 @@ public class AppConfig {
 
     @Bean
     public BookingService bookingService() {
-        return new BookingService();
+        return new BookingService(smtpEmailSender());
     }
 }
