@@ -1,6 +1,7 @@
 package com.eventia.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 @Slf4j
 @Component
@@ -8,8 +9,8 @@ public class BookingService {
 
     private final SmtpEmailSender emailSender;
 
-    public BookingService(SmtpEmailSender emailSender) {
-        this.emailSender = emailSender;
+    public BookingService(@Qualifier("backupEmailSender") SmtpEmailSender sender) {
+        this.emailSender = sender;
     }
 
     public void book(String user, String eventTitle) {
