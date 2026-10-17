@@ -15,11 +15,9 @@ public class App {
         bookingService.book("ahmed@example.com", "Spring Boot Workshop");
 
         log.info("beans in the context: {}", context.getBeanDefinitionCount());
-        var billing = context.getBean(com.eventia.service.BillingService.class);
-        log.info("one service object for both: {}", billing);
-        Thread ahmed = new Thread(() -> log.info("{}", billing.bill("ahmed", 100, 1)));
-        Thread mona = new Thread(() -> log.info("{}", billing.bill("mona", 125, 2)));
-        ahmed.start(); mona.start();
-        try { ahmed.join(); mona.join(); } catch (InterruptedException e) { }
+        log.info("context ready");
+        var first = context.getBean(com.eventia.service.InvoiceBuilder.class);
+        var second = context.getBean(com.eventia.service.InvoiceBuilder.class);
+        log.info("same object? {}", first == second);
     }
 }
