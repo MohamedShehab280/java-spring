@@ -2,14 +2,13 @@ package com.eventia.web;
 
 import com.eventia.service.EventService;
 import com.eventia.web.dto.EventDto;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/events")
 public class EventController {
 
@@ -20,7 +19,6 @@ public class EventController {
     }
 
     @GetMapping
-    @ResponseBody
     public List<EventDto> findAll() {
         return service.findAll();
     }
