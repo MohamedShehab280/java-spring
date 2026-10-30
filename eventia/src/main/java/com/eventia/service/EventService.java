@@ -28,4 +28,8 @@ public class EventService {
     public EventDto create(CreateEventRequest request) {
         return repository.save(request.title(), request.capacity(), request.startsAt());
     }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }
