@@ -1,10 +1,13 @@
 package com.eventia.web;
 
 import com.eventia.service.EventService;
+import com.eventia.web.dto.CreateEventRequest;
 import com.eventia.web.dto.EventDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,5 +36,10 @@ public class EventController {
             return ResponseEntity.ok(event.get());
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping
+    public EventDto create(@RequestBody CreateEventRequest request) {
+        return service.create(request);
     }
 }

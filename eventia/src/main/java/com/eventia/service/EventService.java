@@ -1,6 +1,7 @@
 package com.eventia.service;
 
 import com.eventia.repository.InMemoryEventRepository;
+import com.eventia.web.dto.CreateEventRequest;
 import com.eventia.web.dto.EventDto;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +23,9 @@ public class EventService {
 
     public Optional<EventDto> findById(Long id) {
         return repository.findById(id);
+    }
+
+    public EventDto create(CreateEventRequest request) {
+        return repository.save(request.title(), request.capacity(), request.startsAt());
     }
 }
